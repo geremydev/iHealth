@@ -1,0 +1,54 @@
+﻿@using iHealth.Core.Application.ViewModels.DoctorViewModels;
+@model DoctorViewModel;
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+                <div class="card-header">
+                    <img src="@Model.ImageURL" alt="Serie image" class="img img-fluid" style="width: 100%;">
+                    <h1 class="card-title">Details</h1>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name @Model.LastName</h5>
+
+                    <ol class="list-group list-group-numbered" style="list-style-type: none;">
+                        
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Identification Card</div>
+                                @Model.IdCard
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Email</div>
+                                @Model.Email
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Phone</div>
+                                @Model.Phone
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Card Id</div>
+                                @Model.IdCard
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" style="width:100%">
+                        <a asp-controller="Patient" asp-action="UpdatePatient" asp-route-Id="@Model.Id" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a asp-controller="Patient" asp-action="Index" class="btn btn-sm btn-outline-danger">Go Back</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+

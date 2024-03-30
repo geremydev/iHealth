@@ -1,0 +1,90 @@
+﻿@using iHealth.Core.Application.ViewModels.PatientViewModels;
+@model List<PatientViewModel>;
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-3 offset-9">
+                <a asp-action="AddPatient" class="btn btn-outline-primary">Add Patient</a>
+            </div>
+            
+            <div class="row">
+                <div class="col-3 offset-9">
+                    <br />
+                </div>
+            </div>
+             <div class="row">
+                @if (!(Model.Count == 0))
+                    @foreach (var patient in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card" style="width: auto; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+                            @*<a asp-controller="Patient" asp-action="Details" asp-route-Id="@patient.Id" class="btn btn-top-card">*@
+                                    <img src="@patient.ImageURL" alt="Serie image" class="img img-fluid" style="width: 100%;">
+                            @*</a*@
+                            <div class="card-header">
+                                <div class="card-title">@patient.Name @patient.LastName</div>
+                            </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                        <ul class="list-group" style="list-style-type: none;">
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">Allergies?</div>
+                                                    @patient.Allergies
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">Identification Card</div>
+                                                    @patient.IdCard
+                                                </div>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">Smoker?</div>
+                                                    @patient.Smoker
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        </div>
+                                        <div class="col">
+                                        <ul class="list-group" style="list-style-type: none;">
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">Phone</div>
+                                                    @patient.Phone
+                                                </div>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">Address</div>
+                                                    @patient.Address
+                                                </div>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold">BirthDate</div>
+                                                    @patient.BirthDate
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="btn-group" style="width:100%">
+                                        <a asp-controller="Patient" asp-action="UpdatePatient" asp-route-Id="@patient.Id" class="btn btn-sm btn-outline-warning">Edit</a>
+                                        <a asp-controller="Patient" asp-action="DeletePatient" asp-route-Id="@patient.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                }
+                </div> 
+        </div>
+    </div>
+</div>

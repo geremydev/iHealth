@@ -1,0 +1,37 @@
+﻿@using iHealth.Core.Application.ViewModels.LabResultViewModel;
+@model SaveLabResultViewModel;
+<form asp-action="UpdateLabResult" method="post">
+    <div class="form-group">
+        <label asp-for="Id" hidden>Id:</label>
+        <input asp-for="Id" class="form-control" value="@Model.Id" hidden>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AppointmentId" hidden>AppointmentId:</label>
+        <input asp-for="AppointmentId" class="form-control" value="AppointmentId" hidden>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LabTestId" hidden>AppointmentId:</label>
+        <input asp-for="LabTestId" class="form-control" value="LabTestId" hidden>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Completed">Status:</label>
+        @{
+            string status = Model.Completed == false ? "Pending" : "Completed";
+            <input asp-for="Completed" type="text" value="@status" readonly>
+        }
+        
+    </div>
+    <div class="form-group">
+        <label asp-for="LabTestId" hidden></label>
+        <input asp-for="LabTestId" class="form-control" placeholder="@Model.LabTestId" hidden>
+    </div>
+    <div class="form-group">
+        <label asp-for="Result">Result:</label>
+        <input asp-for="Result" class="form-control" required>
+        
+    </div>
+    <input type="submit" class="btn btn-outline-success" value="Complete" />
+</form>

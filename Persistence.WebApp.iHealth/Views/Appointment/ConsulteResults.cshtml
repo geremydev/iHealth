@@ -1,0 +1,66 @@
+﻿@using iHealth.Core.Application.ViewModels.LabResultViewModel;
+@model List<LabResultViewModel>;
+<style>
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    table {
+        table-layout: fixed
+    }
+
+    th, td {
+        width: 100px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            @if(Model.Count > 0)
+            {
+                <table style="border:solid">
+                    <thead>
+                        <tr>
+                            <td style="width:auto">Name</td>
+                            <td>Current Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var labresult in Model)
+                        {
+                            <tr>
+                                <td style="width:auto">@labresult.LabTest.Name</td>
+                                <td>
+                                    @if (labresult.Completed == true)
+                                    {
+                                        <p>Completed</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Pending</p>
+
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-outline-warning" asp-controller="Appointment">Close Results</a>
+                    </div>
+                    <div class="col">
+                        <a asp-action="CompleteAppointment" asp-controller="Appointment" class="btn btn-outline-success" asp-route-Id="@Model[0].AppointmentId">Complete Appointment</a>
+
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h1>No hay registros</h1>
+            }
+            
+        </div>
+    </div>
+</div>

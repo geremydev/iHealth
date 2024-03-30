@@ -1,0 +1,44 @@
+﻿@using iHealth.Core.Application.ViewModels.DoctorViewModels;
+@model SaveDoctorViewModel;
+<form asp-action="DeleteDoctor" enctype="multipart/form-data" method="post">
+    <h1>Are you sure you wanna delete this user?</h1>
+    <div class="form-group">
+        <label asp-for="Image">Image: </label><br />
+        <img src="@Model.ImageURL" style="height:200px"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" id="Name" placeholder="@Model.Name" readonly>
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Last Name:</label>
+        <input asp-for="LastName" class="form-control" id="LastName" placeholder="@Model.LastName" readonly>
+        <span class="text-danger" asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" id="Email" placeholder="@Model.Email" readonly>
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone" class="form-control" id="Phone" placeholder="@Model.Phone" readonly>
+        <span class="text-danger" asp-validation-for="Phone"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdCard">Identification Card:</label>
+        <input asp-for="IdCard" class="form-control" id="IdCard" placeholder="@Model.IdCard" readonly>
+        <span class="text-danger" asp-validation-for="IdCard"></span>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <a asp-action="Index" asp-controller="Doctor" class="btn btn-outline-warning">Cancel</a>
+        </div>
+        <div class="col">
+            <input type="submit" value="Delete" class="btn btn-outline-danger" />
+
+        </div>
+    </div>
+</form>

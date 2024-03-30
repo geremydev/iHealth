@@ -1,0 +1,46 @@
+﻿@using iHealth.Core.Application.ViewModels.UserViewModels;
+@model SaveUserViewModel;
+<form asp-action="UpdateUser" asp-controller="User" method="post">
+
+    <label asp-for="Name">Name</label><br />
+    <input asp-for="Name" placeholder="@Model.Name"/><br />
+    <span asp-validation-for="Name"></span>
+    <br />
+
+    <label asp-for="LastName">Last Name</label><br />
+    <input asp-for="LastName" placeholder="@Model.LastName" /><br />
+    <span asp-validation-for="LastName"></span>
+    <div class="mb-3">
+        <p class="card-text">
+            <small class="text-muted">
+                <strong class="text-danger">@ViewBag.Existence</strong>
+            </small>
+        </p>
+    </div>
+    <label asp-for="UserName">Username</label><br />
+    <input asp-for="UserName" placeholder="@Model.UserName" /><br />
+    <span asp-validation-for="UserName"></span>
+    <br />
+
+    <label asp-for="Email">Email</label><br />
+    <input asp-for="Email" placeholder="@Model.Email" /><br />
+    <span asp-validation-for="Email"></span>
+    <br />
+
+    <label asp-for="Password">Password</label><br />
+    <input asp-for="Password" value="" /><br />
+    <br />
+
+    <label asp-for="PasswordConfirmation" value="">Password Confirmation</label><br />
+    <input asp-for="PasswordConfirmation" /><br />
+    <br />
+    <div class="row">
+        <div class="col">
+            <a asp-action="Index" asp-controller="User" class="btn btn-outline-warning">Cancel</a>
+        </div>
+        <div class="col">
+            <input type="submit" value="Edit" class="btn btn-outline-success" />
+
+        </div>
+    </div>
+</form>

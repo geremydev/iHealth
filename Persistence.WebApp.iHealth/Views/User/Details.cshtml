@@ -1,0 +1,50 @@
+﻿@using iHealth.Core.Application.ViewModels.UserViewModels;
+@model UserViewModel
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name @Model.LastName</h5>
+                    <ol class="list-group list-group-numbered" style="list-style-type: none;">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Username</div>
+                                @Model.UserName
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Email</div>
+                                @Model.Email
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Role</div>
+                                @{
+                                    if(Model.Role == 0)
+                                    {
+                                        <h1>Admin</h1>
+                                    }
+                                    else
+                                    {
+                                        <h1>Secretary</h1>
+                                    }
+                                }
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" style="width:100%">
+                        <a asp-controller="User" asp-action="Index" class="btn btn-sm btn-outline-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>    

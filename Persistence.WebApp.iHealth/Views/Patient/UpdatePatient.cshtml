@@ -1,0 +1,64 @@
+﻿@using iHealth.Core.Application.ViewModels.PatientViewModels;
+@model SavePatientViewModel;
+<form asp-action="UpdatePatient" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Image">Edit Image:</label>
+        <input asp-for="Image" class="form-control" id="Image" type="file">
+        <span class="text-danger" asp-validation-for="Image"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" id="Name" placeholder="@Model.Name" >
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Last Name:</label>
+        <input asp-for="LastName" class="form-control" id="LastName" placeholder="@Model.LastName" >
+        <span class="text-danger" asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" id="Email" placeholder="@Model.Email" >
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone" class="form-control" id="Phone" placeholder="@Model.Phone" >
+        <span class="text-danger" asp-validation-for="Phone"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdCard">Identification Card:</label>
+        <input asp-for="IdCard" class="form-control" id="IdCard" placeholder="@Model.IdCard" >
+        <span class="text-danger" asp-validation-for="IdCard"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate">BirthDate:</label>
+        <input asp-for="BirthDate" type="date" class="form-control" id="BirthDate" placeholder="@Model.BirthDate" >
+        <span class="text-danger" asp-validation-for="BirthDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address">Address:</label>
+        <input asp-for="Address" type="text" class="form-control" id="Address" placeholder="@Model.Address" >
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Smoker"> Are you smoker? (if yes, check up)</label>
+        <input asp-for="Smoker" type="checkbox" id="Smoker" style="width:auto" placeholder="@Model.Smoker" >
+        <span class="text-danger" asp-validation-for="Smoker"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Allergies"> Do you have allergies? (if yes, check up)</label>
+        <input asp-for="Allergies" type="checkbox" id="Allergies" style="width:auto" placeholder="@Model.Allergies" >
+        <span class="text-danger" asp-validation-for="Allergies"></span>
+    </div>
+    <div class="row">
+        <div class=col>
+            <a class="btn btn-outline-info" asp-action="Index" asp-controller="Patient" style="align-self:end">Cancel</a>
+        </div>
+        <div class=col>
+            <input type="submit" value="Update" class="btn btn-outline-info" /><br />
+        </div>
+    </div>
+</form>

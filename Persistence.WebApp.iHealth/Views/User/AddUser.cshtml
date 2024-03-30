@@ -1,0 +1,61 @@
+﻿@using iHealth.Core.Application.ViewModels.UserViewModels;
+@model SaveUserViewModel;
+
+
+
+<form asp-action="AddUser" asp-controller="User" method="post">
+
+    <label asp-for="Name">Name</label><br />
+    <input asp-for="Name" required/><br />
+    <span asp-validation-for="Name"></span>
+    <br />
+
+    <label asp-for="LastName">Last Name</label><br />
+    <input asp-for="LastName" /><br />
+    <span asp-validation-for="LastName"></span>
+    <br />
+
+    <label asp-for="Email">Email</label><br />
+    <input asp-for="Email" /><br />
+    <span asp-validation-for="Email"></span>
+
+    <div class="mb-3">
+        <p class="card-text">
+            <small class="text-muted">
+                <strong class="text-danger">@ViewBag.Existence</strong>
+            </small>
+        </p>
+    </div>
+    
+    <label asp-for="UserName">Username</label><br />
+    <input asp-for="UserName" /><br />
+    <span asp-validation-for="UserName"></span>
+    <br />
+
+    <label asp-for="Password">Password</label><br />
+    <input asp-for="Password"/><br />
+    <span asp-validation-for="Password"></span>
+    <br />
+
+    <label asp-for="PasswordConfirmation">Password Confirmation</label><br />
+    <input asp-for="PasswordConfirmation" /><br />
+    <span asp-validation-for="PasswordConfirmation"></span>
+    <br />
+
+    <label asp-for="Role">Role:</label><br />
+    <select asp-for="Role" class="form-select" style="width:min-content">
+        <option value="0">Admin</option>
+        <option value="1">Secretary</option>
+    </select>
+    <span asp-validation-for="Role"></span>
+    <br />
+    <div class="row">
+        <div class="col">
+            <a  asp-action="Index" asp-controller="User" class="btn btn-outline-warning">Cancel</a>
+        </div>
+        <div class="col">
+            <input type="submit" value="Create" class="btn btn-outline-success" />
+
+        </div>
+    </div>
+</form>

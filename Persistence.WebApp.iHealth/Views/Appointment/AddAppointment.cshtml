@@ -1,0 +1,41 @@
+﻿@using iHealth.Core.Application.ViewModels.AppointmentViewModel;
+@model AddAppointmentViewModel;
+
+<form asp-action="AddAppointment" method="post">
+    <label asp-for="ChosenDoctorId">Choose a doctor</label>
+    <select asp-for="ChosenDoctorId">
+        @foreach(var doctor in Model.Doctors)
+        {
+            <option value="@doctor.Id">@doctor.Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <label asp-for="ChosenPatientId">Choose a patient</label>
+    <select asp-for="ChosenPatientId">
+        @foreach (var patient in Model.Patients)
+        {
+            <option value="@patient.Id">@patient.Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <label asp-for="Date"> Date</label>
+    <input type="date" asp-for="Date" />
+    <br /><br />
+    <label asp-for="Time"> Time</label>
+    <input type="time" asp-for="Time" />
+    <br /><br />
+    <label asp-for="MedicalConcern">Medical concern:</label>
+    <input type="text" asp-for="MedicalConcern" />
+    <span asp-validation-for="MedicalConcern"></span>
+    <br /><br />
+    <div class="row">
+        <div class="col">
+            <a asp-action="Index" asp-controller="Appointment" class="btn btn-outline-warning">Cancel</a>
+        </div>
+        <div class="col">
+            <input type="submit" value="Create" class="btn btn-outline-success" />
+        </div>
+    </div>
+</form>

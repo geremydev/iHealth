@@ -1,0 +1,40 @@
+﻿@using iHealth.Core.Application.ViewModels.LabTestViewModel;
+@model List<LabTestViewModel>;
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <div class="col-3 offset-9">
+                <a asp-action="AddLabTest" class="btn btn-outline-primary">Add Laboratory Test</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-9">
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            @if (!(Model.Count == 0))
+                @foreach (var labtest in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+                                
+                            <div class="card-body">
+                                <h5 class="card-title">@labtest.Name</h5>
+
+                                    
+                            </div>
+                            <div class="card-footer">
+                                <div class="btn-group" style="width:100%">
+                                    <a asp-controller="LabTest" asp-action="UpdateLabTest" asp-route-Id="@labtest.Id" class="btn btn-sm btn-outline-warning">Edit</a>
+                                    <a asp-controller="LabTest" asp-action="DeleteLabTest" asp-route-Id="@labtest.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+@*                                     <a asp-controller="LabTest" asp-action="Details" asp-route-Id="@labtest.Id" class="btn btn-sm btn-outline-primary">Details</a>
+ *@                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                }
+        </div>
+    </div>
+</div>

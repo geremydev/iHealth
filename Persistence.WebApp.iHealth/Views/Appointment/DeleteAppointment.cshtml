@@ -1,0 +1,29 @@
+﻿@using iHealth.Core.Application.ViewModels.AppointmentViewModel;
+@model AppointmentViewModel
+<div class="container-fluid align-content-center">
+    <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+        <div class="card-body">
+            <form asp-action="DeleteAppointment" method="post">
+                <div class="card-title" style="color:red">
+                    Are you sure you wanna delete this appointment?
+                </div>
+                <label asp-for="Id">Id:</label><br />
+                <input placeholder="@Model.Id" asp-for="Id" readonly />
+                <br /><br />
+                <label asp-for="MedicalConcern">Medical concern:</label>
+                <input type="text" asp-for="MedicalConcern" placeholder="@Model.MedicalConcern" readonly />
+                <span asp-validation-for="MedicalConcern"></span>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col">
+                        <a asp-action="Index" asp-controller="Appointment" class="btn btn-outline-warning">Cancel</a>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

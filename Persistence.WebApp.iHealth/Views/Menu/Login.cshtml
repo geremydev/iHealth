@@ -1,0 +1,21 @@
+﻿@using iHealth.Core.Application.ViewModels.UserViewModels;
+@model LoginViewModel;
+<form asp-action="Login" method="post">
+    <label asp-for="UserName">Username</label><br />
+    <input asp-for="UserName" /><br />
+    <span asp-validation-for="UserName"></span>
+    <br />
+    <label asp-for="Password">Password</label><br />
+    <input asp-for="Password" /><br />
+    <span asp-validation-for="Password"></span>
+    <br />
+
+    <div class="mb-3">
+        <p class="card-text">
+            <small class="text-muted">
+                <strong class="text-danger">@ViewBag.Failed</strong>
+            </small>
+        </p>
+    </div>
+    <input type="submit" value="Login"/>
+</form>

@@ -1,0 +1,11 @@
+﻿@using iHealth.Core.Application.ViewModels.LabTestViewModel;
+@model SaveLabTestViewModel;
+<form asp-action="UpdateLabTest" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" id="Name" placeholder="@Model.Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <input type="submit" value="Update" class="btn btn-outline-danger" /><br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="LabTest">Cancel</a>
+</form>

@@ -1,0 +1,12 @@
+﻿@using iHealth.Core.Application.ViewModels.LabTestViewModel;
+@model SaveLabTestViewModel;
+<form asp-action="DeleteLabTest" enctype="multipart/form-data" method="post">
+    <h1>are you sure you wanna delete this laboratory test??</h1>
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" id="Name" placeholder="@Model.Name" readonly>
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <input type="submit" value="Delete" class="btn btn-outline-danger" /><br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="LabTest">Cancel</a>
+</form>

@@ -1,0 +1,91 @@
+﻿@using iHealth.Core.Application.ViewModels.LabResultViewModel;
+@model FilterCompletedViewModel;
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="card shadow-sm" style="height:auto">
+                <div class="card-header">
+                    <h4 class="card-text">Filters</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Index">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <p class="form-label">Filter by patient</p>
+                                <select asp-for="Filter.PatientId" class="form-select">
+                                    <option value="">Select one</option>
+                                    @foreach (var item in Model.Patients)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <p class="form-label">Filter by doctor</p>
+                                <select asp-for="Filter.DoctorId" class="form-select">
+                                    <option value="">Select one</option>
+                                    @foreach (var item in Model.Doctors)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <p class="form-label">Patient ID Card</p>
+                                <input asp-for="Filter.PatientIdCard" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col" style="text-align:left">
+                                <a asp-action="Index" class="btn btn-sm btn-outline-info">Clean Filter</a>
+                            </div>
+                            <div class="col" style="text-align:right">
+                                <input type="submit" class="btn btn-outline-info" />
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="row">
+                    <div class="col-3 offset-9">
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    @if (!(Model.LabResults.Count == 0))
+                        @foreach (var labResult in Model.LabResults)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">@labResult.LabTest.Name</h5>
+                                        <br />
+                                        <h5>Doctor: @labResult.Appointment.Doctor.Name</h5>
+                                        <h5>Patient: @labResult.Appointment.Patient.Name @labResult.Appointment.Patient.LastName</h5>
+                                        <h6>Card ID: @labResult.Appointment.Patient.IdCard</h6>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="btn-group" style="width:100%">
+                                            <a asp-controller="LabResult" asp-action="UpdateLabResult" asp-route-Id="@labResult.Id" class="btn btn-sm btn-outline-success">Report Result</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+

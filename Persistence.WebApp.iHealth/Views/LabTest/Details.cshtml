@@ -1,0 +1,22 @@
+﻿@using iHealth.Core.Application.ViewModels.LabTestViewModel;
+@model SaveLabTestViewModel;
+<div class="container-fluid">
+
+    <div class="row">
+            
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card" style="width: 18rem; var(--bs-card-border-width) solid var(--bs-card-border-color) solid #DEE2E6;">
+
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name</h5>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" style="width:100%">
+                        <a asp-controller="LabTest" asp-action="Index" class="btn btn-sm btn-outline-warning">Go back</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>      
